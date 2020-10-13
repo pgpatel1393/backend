@@ -8,16 +8,21 @@ private ArrayList<Hulu> customerList = new ArrayList<>();
 	public void addCustomer(Hulu customer) {
 		customerList.add(customer);
 	}
-	public void addCustomer(String Name) {
-		for (Hulu customer : customerList) 
-		{
-			System.out.println(customer.getName());
-		}	
+	
+	private Hulu findCustomer(String email) {
+		// TODO Auto-generated method stub=
+		
+		for (int i = 0; i < customerList.size(); i++) {
+			if (customerList.get(i).getEmailAddress().equals(email)) {
+				printCustomers(customerList.get(i));
+				return customerList.get(i);
+			}
+		}
+		System.out.println("User does not exist");
+		return null;
 	}
-	public void deleteCustomer(Hulu customer) {
-		// TODO Auto-generated method stub
-	}
-	public void printCustomers() {
+	
+	public void printCustomers(Hulu hulu) {
 		for (Hulu customer : customerList)
 		System.out.println(customer.getEmailAddress() + " " + customer.getPassword()+" " + customer.getName()+" " + customer.getGender()+" " + customer.getDOB());
 	}
